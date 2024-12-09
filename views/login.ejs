@@ -1,0 +1,33 @@
+<% if (msg && msg.length > 0) { %>
+    <div class="alert alert-danger mt-4 text-center" role="alert">
+      <%= msg %>
+    </div>
+  <% } %>
+  
+  <div class="container" style="max-width: 400px; margin-top: 50px; background-color: #f0f8ff; padding: 20px; border-radius: 10px;">
+    <h3 class="form-label text-center">Login</h3>
+    <form action="/login" method="post">
+      <div class="mb-3 ms-auto">
+        <label for="username" class="form-label text-primary">Username</label>
+        <input 
+          type="text" 
+          name="username" 
+          class="form-control" 
+          id="username" 
+          placeholder="masukkan username"
+          required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label text-primary">Password</label>
+        <input 
+          type="password" 
+          name="password" 
+          class="form-control" 
+          id="password" 
+          placeholder="masukkan password"
+          required>
+      </div>
+      <button type="submit" class="btn w-100 py-2" style="background-color: #4facfe; color: white; font-weight: bold;">Login</button>
+    </form>
+  </div>
+  

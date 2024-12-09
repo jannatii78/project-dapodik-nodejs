@@ -1,0 +1,82 @@
+<div class="container mt-3">
+  <div class="row">
+      <div class="col-md-12">
+          <h2>Form Ubah Data Siswa</h2>
+
+          <% if (typeof errors != 'undefined') { %>
+              <div class="alert alert-danger" role="alert">
+                  <ul>
+                      <% errors.forEach(error => { %>
+                          <li><%= error.msg %></li>
+                      <% }) %>
+                  </ul>
+              </div>
+          <% } %>
+
+          <form method="post" action="/siswa?_method=PUT">
+          <input type="hidden" name="nisn" value="<%= siswa.nisn %>">
+          <div class="mb-3">
+            <label for="nama" class="form-label">Nama</label>
+            <input type="text" class="form-control" id="nama" name="nama" value="<%= siswa.nama %>" disabled/>
+        </div>
+        <div class="mb-3">
+            <label for="jk" class="form-label">Jenis Kelamin</label>
+            <input type="text" class="form-control" id="jk" name="jk" value="<%= siswa.jk %>" disabled/>
+        </div>
+        <div class="mb-3">
+            <label for="nisn" class="form-label">NISN</label>
+            <input type="text" class="form-control" id="nisn" name="nisn" value="<%= siswa.nisn %>" disabled/>
+        </div>
+        <div class="mb-3">
+            <label for="nik" class="form-label">NIK</label>
+            <input type="text" class="form-control" id="nik" name="nik" value="<%= siswa.nik %>" disabled/>
+        </div>
+        <div class="mb-3">
+            <label for="nokk" class="form-label">No KK</label>
+            <input type="text" class="form-control" id="nokk" name="nokk" value="<%= siswa.nokk %>" disabled/>
+        </div>
+        <div class="col-12 mb-3">
+          <label for="tingkat" class="form-label">Tingkat Kelas Saat Ini</label>
+          <select class="form-select" id="tingkat" name="tingkat" required>
+            <option value="X" <%= siswa.tingkat === "X" ? "selected" : "" %>>X</option>
+            <option value="XI" <%= siswa.tingkat === "XI" ? "selected" : "" %>>XI</option>
+            <option value="XII" <%= siswa.tingkat === "XII" ? "selected" : "" %>>XII</option>
+          </select>
+        </div>        
+          <div class="col-12 mb-3">
+            <label for="rombel" class="form-label">Rombel</label>
+            <select class="form-select" id="rombel" name="rombel" required>
+              <option value="PPLG 1" <%= siswa.rombel === "PPLG 1" ? "selected" : "" %>>PPLG 1</option>
+              <option value="PPLG 2" <%= siswa.rombel === "PPLG 2" ? "selected" : "" %>>PPLG 2</option>
+              <option value="RPL 1" <%= siswa.rombel === "RPL 1" ? "selected" : "" %>>RPL 1</option>
+              <option value="RPL 2" <%= siswa.rombel === "RPL 2" ? "selected" : "" %>>RPL 2</option>
+            </select>
+          </div>          
+          <div class="mb-3">
+            <label for="tgl_masuk" class="form-label">Tanggal Masuk</label>
+            <input 
+              type="date" 
+              class="form-control" 
+              id="tgl_masuk" 
+              name="tgl_masuk" 
+              value="<%= siswa.tgl_masuk ? new Date(siswa.tgl_masuk).toISOString().split('T')[0] : '' %>" 
+              max="2024-12-06" 
+              required 
+            />
+          </div>                
+          <div class="col-12 mb-3">
+            <label for="terdaftar" class="form-label">Status Terdaftar</label>
+            <select class="form-select" id="terdaftar" name="terdaftar" required>
+              <option value="Siswa Baru" <%= siswa.terdaftar === "Siswa Baru" ? "selected" : "" %>>Siswa Baru</option>
+              <option value="Pindahan" <%= siswa.terdaftar === "Pindahan" ? "selected" : "" %>>Pindahan</option>
+            </select>
+          </div>                                
+        <div class="mb-3">
+            <label for="ttl" class="form-label">Tempat Lahir</label>
+            <input type="text" class="form-control" id="ttl" name="ttl" value="<%= siswa.ttl %>" disabled />
+        </div>
+        <button type="submit" class="btn btn-primary">Ubah Data Siswa</button>
+    </form>
+</div>
+</div>        
+</div>
